@@ -1,0 +1,74 @@
+#include <iostream>
+
+// Class for a calculator app
+class Calculator {
+public:
+    // Function to perform addition
+    double add(double a, double b) {
+        return a + b;
+    }
+
+    // Function to perform subtraction
+    double subtract(double a, double b) {
+        return a - b;
+    }
+
+    // Function to perform multiplication
+    double multiply(double a, double b) {
+        return a * b;
+    }
+
+    // Function to perform division
+    double divide(double a, double b) {
+        if (b == 0) {
+            std::cout << "Error: Division by zero" << std::endl;
+            return 0;
+        }
+        return a / b;
+    }
+};
+
+int main() {
+    // Create a calculator
+    Calculator calculator;
+
+    // Get the first number from the user
+    double a;
+    std::cout << "Enter the first number: ";
+    std::cin >> a;
+
+    // Get the second number from the user
+    double b;
+    std::cout << "Enter the second number: ";
+    std::cin >> b;
+
+    // Get the operation from the user
+    char operation;
+    std::cout << "Enter the operation (+, -, *, /): ";
+    std::cin >> operation;
+
+    // Perform the operation
+    double result;
+    switch (operation) {
+        case '+':
+            result = calculator.add(a, b);
+            break;
+        case '-':
+            result = calculator.subtract(a, b);
+            break;
+        case '*':
+            result = calculator.multiply(a, b);
+            break;
+        case '/':
+            result = calculator.divide(a, b);
+            break;
+        default:
+            std::cout << "Error: Invalid operation" << std::endl;
+            return 1;
+    }
+
+    // Print the result
+    std::cout << "Result: " << result << std::endl;
+
+    return 0;
+}
